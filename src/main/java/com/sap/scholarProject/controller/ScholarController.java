@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sap.scholarProject.model.Scholar;
+import com.sap.scholarProject.repository.ScholarRepository;
 import com.sap.scholarProject.service.ScholarService;
 
 // Define APIs
@@ -21,19 +22,21 @@ import com.sap.scholarProject.service.ScholarService;
 @RestController
 @RequestMapping("api/v1")
 public class ScholarController {
-	
+
+	@Autowired
 	private ScholarService scholarService;
 	
-	@Autowired
+	/*
 	public ScholarController(ScholarService scholarService) {
 		this.scholarService = scholarService;
 	}
+	*/
 	
 	@GetMapping("scholars")
 	public ResponseEntity<List<Scholar>> getAllScholars() {
 		List<Scholar> scholars = scholarService.getAllScholars();
 		return new ResponseEntity<List<Scholar>>(scholars, HttpStatus.OK);
-		// return scholarService.getAllScholars();  
+		// return scholarService.getAllScholars();
 	}
 	
 	@GetMapping("scholar")

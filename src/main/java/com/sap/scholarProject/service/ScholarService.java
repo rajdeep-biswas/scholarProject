@@ -51,16 +51,17 @@ public class ScholarService {
 	
 	public List<Scholar> getAllScholars() {
 		// code that works
-		return scholarDatabase.getAllData(conn);
+		// return scholarDatabase.getAllData(conn);
 		
 		// code that doesn't
-		/*
+
+		System.out.println("Attempting to print all scholars");
 		List<Scholar> scholars = new ArrayList<>();
 		for(Scholar scholar: scholarRepository.findAll()) {
 			scholars.add(scholar);
 	  	}
 	  	return scholars;
-		*/
+		
 	}
 	
 	public Scholar getScholar(String id) {
