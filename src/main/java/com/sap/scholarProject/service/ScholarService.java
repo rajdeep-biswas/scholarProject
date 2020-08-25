@@ -55,13 +55,11 @@ public class ScholarService {
 		
 		// code that doesn't
 		/*
-		public List<Scholar> getAllScholars() {
-		  List<Scholar> scholars = new ArrayList<>();
-		  for(Scholar scholar: scholarRepository.findAll()) {
-		    scholars.add(scholar);
-		  }
-		  return scholars;
-		}
+		List<Scholar> scholars = new ArrayList<>();
+		for(Scholar scholar: scholarRepository.findAll()) {
+			scholars.add(scholar);
+	  	}
+	  	return scholars;
 		*/
 	}
 	
