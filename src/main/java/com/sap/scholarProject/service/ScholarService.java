@@ -4,18 +4,21 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sap.scholarProject.model.Scholar;
+import com.sap.scholarProject.repository.ScholarRepository;
 
 @Service
 public class ScholarService {
 	
 	@Autowired
 	private ScholarDatabase scholarDatabase;
+	private ScholarRepository scholarRepository;
 	private Connection conn;
 	
 	public ScholarService() {
@@ -47,7 +50,19 @@ public class ScholarService {
 	}
 	
 	public List<Scholar> getAllScholars() {
+		// code that works
 		return scholarDatabase.getAllData(conn);
+		
+		// code that doesn't
+		/*
+		public List<Scholar> getAllScholars() {
+		  List<Scholar> scholars = new ArrayList<>();
+		  for(Scholar scholar: scholarRepository.findAll()) {
+		    scholars.add(scholar);
+		  }
+		  return scholars;
+		}
+		*/
 	}
 	
 	public Scholar getScholar(String id) {
