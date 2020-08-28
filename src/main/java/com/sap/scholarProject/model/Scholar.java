@@ -1,9 +1,21 @@
 package com.sap.scholarProject.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Scholar_Details")
 public class Scholar {
 	
+	@Id
 	private String iNumber;
+	
+	@Column
 	private String name;
+	
+	@Column
 	private String batch;
 
 	public String getiNumber() {
