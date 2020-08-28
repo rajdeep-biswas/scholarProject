@@ -1,49 +1,27 @@
 package com.sap.scholarProject.service;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sap.scholarProject.config.DatabaseConfiguration;
 import com.sap.scholarProject.model.Scholar;
 
 @Service
 public class ScholarService {
 	
-	@Autowired
-	private ScholarDatabase scholarDatabase;
+//	private DatabaseConfiguration dbCon;
 	private Connection conn;
 	
-	public ScholarService() {
-		setConnection();
-	}
+	@Autowired
+	private ScholarDatabase scholarDatabase;
 	
-	public void setConnection() {
-		String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://localhost";
-        String username = "root";
-        String password = "root";
-        
-        try {
-            Class.forName(driver);
-
-            this.conn = DriverManager.getConnection(url, username, password);
-
-            Statement stmt = conn.createStatement();
-            stmt.executeQuery("use world;");
-            
-            System.out.println("Connected database successfully");
-        }
-        catch(ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        catch(SQLException e) {
-            e.printStackTrace();
-        }
+	@Autowired
+	public ScholarService(DatabaseConfiguration dbCon) {
+//		this.dbCon = dbCon;
+		this.conn = dbCon.setConnection();
 	}
 	
 	public List<Scholar> getAllScholars() {
