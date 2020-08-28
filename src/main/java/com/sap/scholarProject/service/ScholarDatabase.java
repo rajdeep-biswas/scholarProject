@@ -28,7 +28,7 @@ public class ScholarDatabase {
 		try {
 			Statement stmt = conn.createStatement();
 		
-	        String sqlQuery = "insert into scholars values('" + sid + "', '" + name + "', '" + batch + "');";
+	        String sqlQuery = "insert into scholars (i_number, sid, name, batch) values('" + sid + "', '" + sid + "', '" + name + "', '" + batch + "');";
 	        
 	        System.out.println(sqlQuery);
 

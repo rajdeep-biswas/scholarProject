@@ -37,8 +37,9 @@ public class ScholarController {
 		return scholarService.getScholar(id); 
 	}
 	
-	@PostMapping
+	@PostMapping("scholar")
 	public void addScholar(@RequestBody Scholar scholar) {
+		System.out.println(scholar.getName());
 		scholarService.addScholar(scholar);
 	}
 	
